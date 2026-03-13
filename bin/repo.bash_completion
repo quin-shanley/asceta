@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Force load the make completion into the env
+_completion_loader make
+
+# Get the loaded completion spec
+CURR_CMP_SPEC="$(complete -p make)"
+
+# Expected completion specification
+EXP_CMP_SPEC="complete -F _comp_cmd_make make"
+
+if [[ "$CURR_CMP_SPEC" == "$EXP_CMP_SPEC" ]] ; then
+  complete -F _comp_cmd_make repo
+else
+  echo "The repo command completion wasn't loaded because the Make completion specification isn't as expected."
+fi

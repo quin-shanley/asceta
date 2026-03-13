@@ -1,0 +1,31 @@
+#!/usr/bin/env make -f
+
+.DEFAULT_GOAL := help
+
+include ${REPO_ROOT}/Makefile
+
+help: ## Print Make targets with comments
+	@for file in $(MAKEFILE_LIST); do \
+		matches=$$(grep -E '^[A-Za-z0-9][^:]*:.*## ' "$$file" || true); \
+		[ -z "$$matches" ] && continue; \
+		printf '%s\n' "$$file"; \
+		printf '%s\n' "$$matches" \
+			| sed -E 's/:.*## /\t/' \
+			| sort \
+			| column -t -s $$'\t' \
+			| sed -E 's/^/  /'; \
+		printf '\n'; \
+	done
+
+ls list: ## List all make targets.
+	@for file in $(MAKEFILE_LIST); do \
+		matches=$$(grep -E '^[A-Za-z0-9][^:]*:' "$$file" || true); \
+		[ -z "$$matches" ] && continue; \
+		printf '%s\n' "$$file"; \
+		printf '%s\n' "$$matches" \
+			| sed -E 's/:.*//' \
+			| sed -E 's/ /\n/g' \
+			| sort \
+			| sed -E 's/^/  /'; \
+		printf '\n'; \
+	done
