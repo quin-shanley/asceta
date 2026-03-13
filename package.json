@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "asciidoctor": "^3.0.4",
+    "eta": "^4.5.1"
+  }
+}
