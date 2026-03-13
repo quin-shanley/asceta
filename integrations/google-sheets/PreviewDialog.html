@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <body style="font-family: Arial, sans-serif; padding: 12px;">
+    <div style="display:flex; gap:10px; align-items:center; margin-bottom:10px;">
+      <button id="select" style="padding:6px 10px;">Select all</button>
+      <span style="color:#555;">Then press <b>Cmd/Ctrl+C</b> and paste into Gmail.</span>
+    </div>
+
+    <div id="preview" style="border:1px solid #ddd; border-radius:8px; padding:12px; overflow:auto;">
+      <?!= previewHtml ?>
+    </div>
+
+    <script>
+      document.getElementById("select").addEventListener("click", () => {
+        const el = document.getElementById("preview");
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+    </script>
+  </body>
+</html>
