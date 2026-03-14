@@ -1,5 +1,9 @@
 /** @OnlyCurrentDoc */
 
+// The onOpen function is all you need to copy to another Apps Script to use Asceta
 function onOpen() {
-  Templater.loadTemplater();
+  SpreadsheetApp.getUi()
+  .createMenu("Template")
+  .addItem("Render template", "Asceta.renderPreviewDialog")
+  .addToUi();
 }
