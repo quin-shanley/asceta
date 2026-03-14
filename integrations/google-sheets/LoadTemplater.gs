@@ -1,14 +1,3 @@
-function loadTemplater() {
-  createMenu();
-}
-
-function createMenu() {
-  SpreadsheetApp.getUi()
-  .createMenu("Template")
-  .addItem("Render template", "renderPreviewDialog")
-  .addToUi();
-}
-
 function renderPreviewDialog() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getActiveSheet();
