@@ -1,0 +1,19 @@
+= Style Guides
+
+// TODO: Add check to CI
+== Conventional Commits
+The format is '<type>(<scope>): <description>':
+
+* type: A noun that describes the kind of change:
+** feat: A new feature.
+** fix: A bug fix.
+** docs: Documentation only changes.
+** style: Formatting, missing semicolons, etc.; no production code changes.
+** refactor: A code change that neither fixes a bug nor adds a feature.
+** test: Adding missing tests or correcting existing tests.
+** chore: Routine tasks, updating dependencies, etc..
+** perf: A code change that improves performance.
+** ci: Changes to CI configuration files and scripts.
+** build: Changes that affect the build system or external dependencies.
+* scope (optional): A section of the codebase (e.g., feat(parser):).
+* description: A short summary in the imperative mood.
