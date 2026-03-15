@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@google/clasp": "^3.3.0",
     "asciidoctor": "^3.0.4",
     "eta": "^4.5.1"
   }
